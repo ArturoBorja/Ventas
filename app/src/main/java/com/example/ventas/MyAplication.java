@@ -10,8 +10,10 @@ import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class MyAplication extends Application {
+    public static AtomicInteger cod_venta;
     public static AtomicInteger cod_cliente;
     public static AtomicInteger cod_pedido;
+    public static AtomicInteger cod_item;
 
     @Override
     public void onCreate() {
@@ -21,8 +23,10 @@ public class MyAplication extends Application {
                 .Builder().deleteRealmIfMigrationNeeded().build();
         Realm.setDefaultConfiguration(configuration);
         Realm realm = Realm.getDefaultInstance();
+        cod_venta = ObtenerId(realm,Venta.class);
         cod_cliente = ObtenerId(realm, Clientes.class);
         cod_pedido = ObtenerId(realm, Pedidos.class);
+        cod_item=ObtenerId(realm,Items.class);
         realm.close();
 
     }

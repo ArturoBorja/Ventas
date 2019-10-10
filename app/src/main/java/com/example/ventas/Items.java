@@ -1,9 +1,18 @@
 package com.example.ventas;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-public class Items extends RealmObject
-{
+public class Items extends RealmObject{
+    @PrimaryKey
+    private int id;
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
+
     private String total;
 
     private String cantidad;
@@ -38,6 +47,10 @@ public class Items extends RealmObject
     public void setIdproducto (String idproducto)
     {
         this.idproducto = idproducto;
+    }
+
+    public Items() {
+        this.id = MyAplication.cod_item.incrementAndGet();
     }
 
     @Override

@@ -1,8 +1,17 @@
 package com.example.ventas;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Clientes extends RealmObject {
+    @PrimaryKey
+    private int id;
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
     private String apellidos;
 
     private String latitud;
@@ -17,7 +26,6 @@ public class Clientes extends RealmObject {
 
     private String fono;
 
-    private String id;
 
     private String rowid;
 
@@ -91,16 +99,6 @@ public class Clientes extends RealmObject {
     public void setFono (String fono)
     {
         this.fono = fono;
-    }
-
-    public String getId ()
-    {
-        return id;
-    }
-
-    public void setId (String id)
-    {
-        this.id = id;
     }
 
     public String getRowid ()

@@ -2,8 +2,18 @@ package com.example.ventas;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Pedidos extends RealmObject {
+
+    @PrimaryKey
+    private int id;
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
     private String fecha;
 
     private String total;
@@ -26,6 +36,10 @@ public class Pedidos extends RealmObject {
     public void setFecha (String fecha)
     {
         this.fecha = fecha;
+    }
+
+    public Pedidos() {
+        this.id = MyAplication.cod_pedido.incrementAndGet();
     }
 
     public String getTotal ()
